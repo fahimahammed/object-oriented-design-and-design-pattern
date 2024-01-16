@@ -33,7 +33,10 @@ public class Housing implements IStructure {
     };
 
     public void location() {
-        System.out.println("You are currently in  " + this.getName());
+        System.out.println("You are currently in  " + this.getName() + ". It has ");
+        for (IStructure struct : this.structures) {
+            System.out.println("\t- " + struct.getName());
+        }
     };
 
 }

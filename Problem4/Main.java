@@ -5,8 +5,11 @@ public class Main {
         Housing building = new Housing("Boikali, Khulna");
 
         Housing floor1 = new Housing("Boikali, Khulna - 1st floor");
+        Housing floor2 = new Housing("Boikali, Khulna - 2nd floor");
+        Housing floor3 = new Housing("Boikali, Khulna - 3rd floor");
         int firstFloor = building.addStructure(floor1);
-        System.out.println("Component Number: " + firstFloor);
+        int secoundFloor = building.addStructure(floor2);
+        int thirdFloor = building.addStructure(floor3);
 
         Room bedRoom1 = new Room("Master Bed Room");
         Room bedRoom2 = new Room("Common Bed Room");
@@ -29,6 +32,7 @@ public class Main {
         currentRoom.exit();
 
         currentFloor.exit();
+        building.location();
         building.exit();
     }
 }
