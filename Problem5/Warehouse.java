@@ -19,6 +19,8 @@ public class Warehouse implements IOrder {
                 int currentStock = stock.get(item.name);
                 if (currentStock > 0) {
                     stock.put(item.name, currentStock - 1);
+                    System.out.println("Item name: " + item.name + " Warehouse: " + this.getWarehouseAddress()
+                            + "\t #Successfull!");
                 } else {
                     System.out.println("Item " + item.name + " is out of stock.");
                 }
@@ -33,5 +35,9 @@ public class Warehouse implements IOrder {
             return stock.get(item.name).intValue();
         }
         return 0;
+    }
+
+    public String getWarehouseAddress() {
+        return this.address;
     }
 }

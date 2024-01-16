@@ -16,7 +16,7 @@ public class Client {
         warehouses.add(warehouse1);
         warehouses.add(warehouse2);
 
-        OrderFulfillment orderFulfillment = new OrderFulfillment(warehouses);
+        IOrder orderFulfillment = new OrderFulfillment(warehouses);
 
         Order order = new Order();
         order.itemList.add(new Item("ItemA"));

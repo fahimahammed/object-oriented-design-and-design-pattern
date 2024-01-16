@@ -18,13 +18,13 @@ public class OrderFulfillment implements IOrder {
 
             for (Warehouse warehouse : warehouses) {
                 int currentStock = warehouse.currentInventory(item);
+                // System.out.println("WareHouse: " + warehouse);
 
                 if (currentStock > 0) {
                     Order wareHouseOrder = new Order();
                     wareHouseOrder.itemList.add(item);
-                    ordersToShip.add(wareHouseOrder);
+                    warehouse.fulfillOrder(wareHouseOrder);
                     itemFulfilled = true;
-                    warehouse.stock.put(item.name, currentStock - 1);
                     break;
                 }
             }
@@ -33,12 +33,5 @@ public class OrderFulfillment implements IOrder {
                 System.out.println("Item " + item.name + " is out of stock in all warehouses.");
             }
         }
-        for (Order warehouseOrder : ordersToShip) {
-            sendOrderToWareHouse(warehouseOrder);
-        }
-    }
-
-    public void sendOrderToWareHouse(Order order) {
-        System.out.println("successfully order fulfilled " + order.itemList.size());
     }
 }
